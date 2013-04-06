@@ -31,7 +31,7 @@ class Generator {
 
     def copyPhase(rules){
         println("==== COPY PHASE ====")
-        rules?.copy.each {
+        rules?.copy?.each {
             println("Copy : $it.input to $it.output")
             FS.copy(it.input,it.output)
         };
@@ -43,7 +43,7 @@ class Generator {
         println "Register macros."
         def macros = rules?.macros.collectEntries {k,v -> [k , Class.forName(v).newInstance()]}
 
-        rules?.templates.each { rule ->
+        rules?.templates?.each { rule ->
             applyTemplate(rule,models,macros)
         };
     }
@@ -56,7 +56,7 @@ class Generator {
             bindings.macro = macros
             bindings.model = model
             bindings.data = [:]
-            bindings.data += rule?.data.collectEntries {k,v -> [k , Eval.x(models,v)]}
+            bindings.data += rule?.data?.collectEntries {k,v -> [k , Eval.x(models,v)]}
             def fileName = engine.directTemplate(rule.output,bindings)
             println "Generating : $fileName"
             def txt = engine.directTemplate(new File(templateFileName).text,bindings)
