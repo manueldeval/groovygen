@@ -1,0 +1,20 @@
+{
+    "basePkg" : "org.deman.entity",
+    "services" : [
+        {
+            "name" : "Person",
+            "url"  : "/person/",
+            "fields" : [
+                {
+                    "type":"String",
+                    "name" : "name",
+                    "id": true
+                },
+                {
+                    "type":"int",
+                    "name":"age"
+                },
+            ]
+        }
+    ],
+}

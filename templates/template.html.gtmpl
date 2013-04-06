@@ -1,0 +1,10 @@
+/**
+ * Last Generation date ${macro.my.hello who:'Manu' }
+ **/
+package ${data.pkg}
+
+class ${model.name} {
+<%model.fields.each { field -> %>\
+    ${field.type} ${field.name}
+<%}%>\
+}

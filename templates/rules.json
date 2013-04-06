@@ -1,0 +1,21 @@
+{
+    "macros" : {
+        "my" : "org.deman.generator.tag.MyTagLib"
+    },
+    "copy" : [
+        {
+            "input" : "templates/site/assets/",
+            "output" : "generated/site/assets/"
+        }
+    ],
+    "templates" : [
+        {
+            "template"  : "templates/template.html.gtmpl",
+            "model"     : "x.services",
+            "data" : {
+                "pkg" : "x.basePkg"
+            },
+            "output" : "generated/${data.pkg.replaceAll('\\\\.','/')}/${model.name}.groovy"
+        }
+    ]
+}
